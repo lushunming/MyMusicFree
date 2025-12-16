@@ -138,7 +138,7 @@ const $882b6d93070905b3$var$getRecommendSheetsByTag = async function(tag, page) 
 const $882b6d93070905b3$var$pluginInstance = {
     platform: "qqmp3",
     version: "0.0.1",
-    srcUrl: "https://github.com/yunser/qqmp3-plugin",
+    srcUrl: "https://ghproxy.net/https://raw.githubusercontent.com/lushunming/MyMusicFree/refs/heads/master/dist/plugin.js",
     search: $882b6d93070905b3$var$search,
     getLyric: $882b6d93070905b3$var$getLyric,
     getMediaSource: $882b6d93070905b3$var$getMediaSource,
