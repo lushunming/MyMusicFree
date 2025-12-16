@@ -1,29 +1,137 @@
 import axios from 'axios';
-import cheerio from 'cheerio';
-import cryptojs from 'crypto-js';
-import dayjs from 'dayjs';
-import bigInt from 'big-integer';
-import he from 'he';
-import qs from 'qs';
+import IMediaSourceResult = IPlugin.IMediaSourceResult;
+import IGetRecommendSheetTagsResult = IPlugin.IGetRecommendSheetTagsResult;
 
-// TODO: 你可以在这里写插件的逻辑
 
+const siteUrl = 'https://api.qqmp3.vip';
 // 注意：不要使用async () => {}，hermes不支持异步箭头函数
 const search: IPlugin.ISearchFunc = async function (query, page, type) {
-  if(type === 'music') {
-    return {
-      isEnd: true,
-      data: []
+    if (type === 'music') {
+
+        let result = await axios.get(siteUrl + 'api/songs.php?type=search&keyword=' + encodeURI(query))
+        let resultJson = JSON.parse(result.data)
+        if (resultJson.code === 200) {
+            let musicList = resultJson.data.map(function (item) {
+                return {
+                    id: item.rid,
+                    title: item.name,
+                    artist: item.artist,
+                    album: '',
+                    duration: '',
+                    artwork: item.pic,
+                    url: '',
+                    lrc: '',
+                    rawLrc: ''
+                }
+            })
+            return {
+                isEnd: true,
+                data: musicList
+            }
+        }
+
+
     }
-  };
 }
 
+const getMediaSource: (
+    musicItem: IMusic.IMusicItemPartial,
+    quality: IMusic.IQualityKey
+) => Promise<IMediaSourceResult | null> = async function (musicItem, quality) {
+    let result = await axios.get(siteUrl + '/api/kw.php?rid=' + musicItem.id + '&type=json&level=exhigh&lrc=true')
+    let resultJson = JSON.parse(result.data)
+    if (resultJson.code === 200) {
+        return {
+            url: resultJson.data.url
+        }
+    }
+
+}
+
+const getLyric
+    : (
+    musicItem: IMusic.IMusicItemPartial
+) => Promise<ILyric.ILyricSource | null> =
+    async function (musicItem) {
+        let result = await axios.get(siteUrl + '/api/kw.php?rid=' + musicItem.id + '&type=json&level=exhigh&lrc=true')
+        let resultJson = JSON.parse(result.data)
+        if (resultJson.code === 200) {
+            return {
+                lrc: resultJson.data.lrc
+            }
+        }
+
+    }
+
+
+const getRecommendSheetTags: () => Promise<IGetRecommendSheetTagsResult> =
+    async function () {
+        /*[
+            {id: '', title: '热门'},
+            {id: 'rand', title: '随机'},
+            {id: 'new', title: '新歌'},
+        ]*/
+        return {
+            pinned: [{id: '', title: '热门', platform: 'qqmp3'},
+                {id: 'rand', title: '随机', platform: 'qqmp3'},
+                {id: 'new', title: '新歌', platform: 'qqmp3'}],
+            data: [
+                {
+                    title: '热门歌单',
+                    data: [
+
+                        {id: '', title: '热门', platform: 'qqmp3'},
+                        {id: 'rand', title: '随机', platform: 'qqmp3'},
+                        {id: 'new', title: '新歌', platform: 'qqmp3'}
+                    ]
+
+                }]
+
+
+        }
+
+
+    }
+const getRecommendSheetsByTag: (tag: IMedia.IUnique, page?: number) => Promise<ICommon.PaginationResponse<IMusic.IMusicSheetItem>> =
+    async function (tag, page) {
+        let result = await axios.get(siteUrl + '/api/songs.php?type=' + tag.id)
+        let resultJson = JSON.parse(result.data)
+        if (resultJson.code === 200) {
+            let musicList = resultJson.data.map(function (item) {
+                return {
+                    id: item.rid,
+                    title: item.name,
+                    artist: item.artist,
+                    album: '',
+                    duration: '',
+                    artwork: item.pic,
+                    url: '',
+                    lrc: '',
+                    rawLrc: ''
+                }
+            })
+            return {
+                isEnd: true,
+                data: [{
+                    id: tag.id,
+                    title: tag.$.title,
+                    data: musicList,
+                    platform: 'qqmp3'
+                }]
+            }
+        }
+
+
+    }
 
 const pluginInstance: IPlugin.IPluginDefine = {
-  platform: "插件名",
-  version: "0.0.0",
-  // TODO: 在这里把插件剩余的功能补充完整
-  search
+    platform: "qqmp3",
+    version: "0.0.1",
+    srcUrl: "https://github.com/yunser/qqmp3-plugin",
+    search,
+    getLyric,
+    getMediaSource,
+    getRecommendSheetTags
 };
 
 
