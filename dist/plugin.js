@@ -21,8 +21,8 @@ const $882b6d93070905b3$var$siteUrl = 'https://api.qqmp3.vip';
 // 注意：不要使用async () => {}，hermes不支持异步箭头函数
 const $882b6d93070905b3$var$search = async function(query, page, type) {
     if (type === 'music') {
-        let result = await (0, ($parcel$interopDefault($8zHUo$axios))).get($882b6d93070905b3$var$siteUrl + 'api/songs.php?type=search&keyword=' + encodeURI(query));
-        let resultJson = JSON.parse(result.data);
+        let result = await (0, ($parcel$interopDefault($8zHUo$axios))).get($882b6d93070905b3$var$siteUrl + '/api/songs.php?type=search&keyword=' + encodeURI(query));
+        let resultJson = result.data;
         if (resultJson.code === 200) {
             let musicList = resultJson.data.map(function(item) {
                 return {
@@ -46,14 +46,14 @@ const $882b6d93070905b3$var$search = async function(query, page, type) {
 };
 const $882b6d93070905b3$var$getMediaSource = async function(musicItem, quality) {
     let result = await (0, ($parcel$interopDefault($8zHUo$axios))).get($882b6d93070905b3$var$siteUrl + '/api/kw.php?rid=' + musicItem.id + '&type=json&level=exhigh&lrc=true');
-    let resultJson = JSON.parse(result.data);
+    let resultJson = result.data;
     if (resultJson.code === 200) return {
         url: resultJson.data.url
     };
 };
 const $882b6d93070905b3$var$getLyric = async function(musicItem) {
     let result = await (0, ($parcel$interopDefault($8zHUo$axios))).get($882b6d93070905b3$var$siteUrl + '/api/kw.php?rid=' + musicItem.id + '&type=json&level=exhigh&lrc=true');
-    let resultJson = JSON.parse(result.data);
+    let resultJson = result.data;
     if (resultJson.code === 200) return {
         lrc: resultJson.data.lrc
     };
@@ -107,7 +107,7 @@ const $882b6d93070905b3$var$getRecommendSheetTags = async function() {
 };
 const $882b6d93070905b3$var$getRecommendSheetsByTag = async function(tag, page) {
     let result = await (0, ($parcel$interopDefault($8zHUo$axios))).get($882b6d93070905b3$var$siteUrl + '/api/songs.php?type=' + tag.id);
-    let resultJson = JSON.parse(result.data);
+    let resultJson = result.data;
     if (resultJson.code === 200) {
         let musicList = resultJson.data.map(function(item) {
             return {
@@ -137,7 +137,7 @@ const $882b6d93070905b3$var$getRecommendSheetsByTag = async function(tag, page) 
 };
 const $882b6d93070905b3$var$pluginInstance = {
     platform: "qqmp3",
-    version: "0.0.1",
+    version: "0.0.2",
     srcUrl: "https://ghproxy.net/https://raw.githubusercontent.com/lushunming/MyMusicFree/refs/heads/master/dist/plugin.js",
     search: $882b6d93070905b3$var$search,
     getLyric: $882b6d93070905b3$var$getLyric,

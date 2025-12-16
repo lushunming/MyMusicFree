@@ -8,8 +8,8 @@ const siteUrl = 'https://api.qqmp3.vip';
 const search: IPlugin.ISearchFunc = async function (query, page, type) {
     if (type === 'music') {
 
-        let result = await axios.get(siteUrl + 'api/songs.php?type=search&keyword=' + encodeURI(query))
-        let resultJson = JSON.parse(result.data)
+        let result = await axios.get(siteUrl + '/api/songs.php?type=search&keyword=' + encodeURI(query))
+        let resultJson = result.data
         if (resultJson.code === 200) {
             let musicList = resultJson.data.map(function (item) {
                 return {
@@ -39,7 +39,7 @@ const getMediaSource: (
     quality: IMusic.IQualityKey
 ) => Promise<IMediaSourceResult | null> = async function (musicItem, quality) {
     let result = await axios.get(siteUrl + '/api/kw.php?rid=' + musicItem.id + '&type=json&level=exhigh&lrc=true')
-    let resultJson = JSON.parse(result.data)
+    let resultJson = result.data
     if (resultJson.code === 200) {
         return {
             url: resultJson.data.url
@@ -54,7 +54,7 @@ const getLyric
 ) => Promise<ILyric.ILyricSource | null> =
     async function (musicItem) {
         let result = await axios.get(siteUrl + '/api/kw.php?rid=' + musicItem.id + '&type=json&level=exhigh&lrc=true')
-        let resultJson = JSON.parse(result.data)
+        let resultJson = result.data
         if (resultJson.code === 200) {
             return {
                 lrc: resultJson.data.lrc
@@ -95,7 +95,7 @@ const getRecommendSheetTags: () => Promise<IGetRecommendSheetTagsResult> =
 const getRecommendSheetsByTag: (tag: IMedia.IUnique, page?: number) => Promise<ICommon.PaginationResponse<IMusic.IMusicSheetItem>> =
     async function (tag, page) {
         let result = await axios.get(siteUrl + '/api/songs.php?type=' + tag.id)
-        let resultJson = JSON.parse(result.data)
+        let resultJson = result.data
         if (resultJson.code === 200) {
             let musicList = resultJson.data.map(function (item) {
                 return {
@@ -126,7 +126,7 @@ const getRecommendSheetsByTag: (tag: IMedia.IUnique, page?: number) => Promise<I
 
 const pluginInstance: IPlugin.IPluginDefine = {
     platform: "qqmp3",
-    version: "0.0.1",
+    version: "0.0.2",
     srcUrl: "https://ghproxy.net/https://raw.githubusercontent.com/lushunming/MyMusicFree/refs/heads/master/dist/plugin.js",
     search,
     getLyric,

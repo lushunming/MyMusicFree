@@ -5,7 +5,7 @@
   "source": "src/index.ts",
   "main": "dist/plugin.js",
   "scripts": {
-    "dev": "ts-node ./src/index.ts",
+    "dev": "ts-node ./src/test.ts",
     "watch": "parcel watch",
     "build": "parcel build"
   },
