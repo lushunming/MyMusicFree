@@ -126,13 +126,20 @@ const $882b6d93070905b3$var$getRecommendSheetsByTag = async function(tag, page) 
         });
         return {
             isEnd: true,
-            data: musicList
+            data: [
+                {
+                    title: "\u6B4C\u5355",
+                    platform: 'qqmp3',
+                    id: tag.id,
+                    musicList: musicList
+                }
+            ]
         };
     }
 };
 const $882b6d93070905b3$var$pluginInstance = {
     platform: "qqmp3",
-    version: "0.0.4",
+    version: "0.0.5",
     srcUrl: "https://ghproxy.net/https://raw.githubusercontent.com/lushunming/MyMusicFree/refs/heads/master/dist/plugin.js",
     search: $882b6d93070905b3$var$search,
     getLyric: $882b6d93070905b3$var$getLyric,

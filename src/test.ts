@@ -34,7 +34,7 @@ async function getRecommendSheetTags() {
 async function testgetRecommendSheetsByTag() {
     let result: ICommon.PaginationResponse<IMusic.IMusicSheetItem>;
 
-    result = await pluginInstance.getRecommendSheetsByTag({id: 'rand', title: '随机', platform: 'qqmp3'});
+    result = await pluginInstance.getRecommendSheetsByTag({id: 'rand'});
 
 
     console.log('---------getRecommendSheetsByTag-----------'+JSON.stringify(result))
