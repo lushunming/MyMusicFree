@@ -57,7 +57,7 @@ const getLyric
         let resultJson = result.data
         if (resultJson.code === 200) {
             return {
-                lrc: resultJson.data.lrc
+                rawLrc: resultJson.data.lrc
             }
         }
 
@@ -91,6 +91,19 @@ const getRecommendSheetTags: () => Promise<IGetRecommendSheetTagsResult> =
         }
 
 
+    }
+    const getMusicInfo: (
+        musicBase: IMedia.IMediaBase
+    ) => Promise<Partial<IMusic.IMusicItem> | null> =
+    async function (musicBase) {
+
+        let result = await axios.get(siteUrl + '/api/kw.php?rid=' + musicBase.id + '&type=json&level=exhigh&lrc=true')
+        let resultJson = result.data
+        if (resultJson.code === 200) {
+            return {
+                url: resultJson.data.url
+            }
+        }
     }
 const getRecommendSheetsByTag: (tag: IMedia.IUnique, page?: number) => Promise<ICommon.PaginationResponse<IMusic.IMusicSheetItem>> =
     async function (tag, page) {
@@ -132,13 +145,14 @@ const getRecommendSheetsByTag: (tag: IMedia.IUnique, page?: number) => Promise<I
 
 const pluginInstance: IPlugin.IPluginDefine = {
     platform: "qqmp3",
-    version: "0.0.5",
+    version: "0.0.6",
     srcUrl: "https://ghproxy.net/https://raw.githubusercontent.com/lushunming/MyMusicFree/refs/heads/master/dist/plugin.js",
     search,
     getLyric,
     getMediaSource,
     getRecommendSheetTags,
-    getRecommendSheetsByTag
+    getRecommendSheetsByTag,
+    getMusicInfo
 };
 
 

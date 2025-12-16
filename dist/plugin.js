@@ -55,7 +55,7 @@ const $882b6d93070905b3$var$getLyric = async function(musicItem) {
     let result = await (0, ($parcel$interopDefault($8zHUo$axios))).get($882b6d93070905b3$var$siteUrl + '/api/kw.php?rid=' + musicItem.id + '&type=json&level=exhigh&lrc=true');
     let resultJson = result.data;
     if (resultJson.code === 200) return {
-        lrc: resultJson.data.lrc
+        rawLrc: resultJson.data.lrc
     };
 };
 const $882b6d93070905b3$var$getRecommendSheetTags = async function() {
@@ -105,6 +105,13 @@ const $882b6d93070905b3$var$getRecommendSheetTags = async function() {
         ]
     };
 };
+const $882b6d93070905b3$var$getMusicInfo = async function(musicBase) {
+    let result = await (0, ($parcel$interopDefault($8zHUo$axios))).get($882b6d93070905b3$var$siteUrl + '/api/kw.php?rid=' + musicBase.id + '&type=json&level=exhigh&lrc=true');
+    let resultJson = result.data;
+    if (resultJson.code === 200) return {
+        url: resultJson.data.url
+    };
+};
 const $882b6d93070905b3$var$getRecommendSheetsByTag = async function(tag, page) {
     var url = $882b6d93070905b3$var$siteUrl + '/api/songs.php';
     if (tag.id) url += '?type=' + tag.id;
@@ -139,13 +146,14 @@ const $882b6d93070905b3$var$getRecommendSheetsByTag = async function(tag, page) 
 };
 const $882b6d93070905b3$var$pluginInstance = {
     platform: "qqmp3",
-    version: "0.0.5",
+    version: "0.0.6",
     srcUrl: "https://ghproxy.net/https://raw.githubusercontent.com/lushunming/MyMusicFree/refs/heads/master/dist/plugin.js",
     search: $882b6d93070905b3$var$search,
     getLyric: $882b6d93070905b3$var$getLyric,
     getMediaSource: $882b6d93070905b3$var$getMediaSource,
     getRecommendSheetTags: $882b6d93070905b3$var$getRecommendSheetTags,
-    getRecommendSheetsByTag: $882b6d93070905b3$var$getRecommendSheetsByTag
+    getRecommendSheetsByTag: $882b6d93070905b3$var$getRecommendSheetsByTag,
+    getMusicInfo: $882b6d93070905b3$var$getMusicInfo
 };
 var $882b6d93070905b3$export$2e2bcd8739ae039 = $882b6d93070905b3$var$pluginInstance;
 
