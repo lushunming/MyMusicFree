@@ -116,12 +116,7 @@ const getRecommendSheetsByTag: (tag: IMedia.IUnique, page?: number) => Promise<I
             })
             return {
                 isEnd: true,
-                data: [{
-                    id: tag.id,
-                    title: tag.title,
-                    data: musicList,
-                    platform: 'qqmp3'
-                }]
+                data: musicList
             }
         }
 
@@ -130,7 +125,7 @@ const getRecommendSheetsByTag: (tag: IMedia.IUnique, page?: number) => Promise<I
 
 const pluginInstance: IPlugin.IPluginDefine = {
     platform: "qqmp3",
-    version: "0.0.3",
+    version: "0.0.4",
     srcUrl: "https://ghproxy.net/https://raw.githubusercontent.com/lushunming/MyMusicFree/refs/heads/master/dist/plugin.js",
     search,
     getLyric,
