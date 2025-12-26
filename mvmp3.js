@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const siteURL = 'https://www.mvmp3.com'
 module.exports = {
     platform: "mvmp3", // 插件名
-    version: "0.0.6", // 版本号
+    version: "0.0.7", // 版本号
     author: "公众号:非主流的小城生活",
     srcUrl: "https://hk.gh-proxy.org/https:/raw.githubusercontent.com/lushunming/MyMusicFree/master/bg.js",
     cacheControl: "no-store", // 我们可以直接解析出musicItem的结构，因此选取no-store就好了，当然也可以不写这个字段
@@ -216,7 +216,7 @@ module.exports = {
      * @returns {Promise<{data: *[]}>}
      */, async getRecommendSheetsByTag(tag, page) {
 
-        let topListId = tag.id?tag.id.replaceAll(".html", "") :'/list/top.html'.replaceAll(".html", "")
+        let topListId = tag.id?tag.id.replaceAll(".html", "") :'/gdlist/index.html'.replaceAll(".html", "")
 
         const rawHtml = (await axios.get(siteURL + topListId + "/" + page + ".html")).data;
         // 接下来解析html
