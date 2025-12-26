@@ -157,7 +157,7 @@ describe('bg获取歌单详情 ', () => {
     test('bg-getMusicSheetInfo ', async () => {
         try {
             const result = await kw.getMusicSheetInfo(  {
-                "id": "/playlist/9184831.html",
+                "id": "/playlist/9205581.html",
                 "title": "五音养生：古琴疏肝理气静心纯音乐",
                 "artist": "五音养生：古琴疏肝理气静心纯音乐",
                 "artwork": "http://c1.kgimg.com/custom/400/20251217/20251217122454820926.png",

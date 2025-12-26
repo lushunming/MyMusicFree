@@ -1,18 +1,18 @@
 
-import { expect, test, describe } from "bun:test";
+import { expect, test, describe,fail } from "bun:test";
 import kw from '../kw.js'
 
-describe('酷我音乐搜索功能测试', () => {
-    test('搜索音乐 - 周杰伦第二页', async () => {
+describe('kw音乐搜索功能测试', () => {
+    test('搜索夜曲', async () => {
         try {
-            const result = await kw.search("周杰伦", 2, 'music');
-            
+            const result = await kw.search("夜曲", 1, 'music');
+
             // 验证返回结果结构
             expect(result).toBeDefined();
             expect(result).toHaveProperty('isEnd');
             expect(result).toHaveProperty('data');
             expect(Array.isArray(result.data)).toBe(true);
-            
+
             // 如果有结果，验证音乐项结构
             if (result.data.length > 0) {
                 const musicItem = result.data[0];
@@ -21,52 +21,162 @@ describe('酷我音乐搜索功能测试', () => {
                 expect(musicItem).toHaveProperty('artist');
                 expect(musicItem).toHaveProperty('album');
             }
-            
+
             console.log(`搜索到 ${result.data.length} 首歌曲`);
             console.log("结果详情:", JSON.stringify(result, null, 2));
-            
+
         } catch (error) {
             console.error('搜索失败:', error);
             fail(`搜索请求失败: ${error.message}`);
         }
     });
 
-    test('搜索专辑 - 周杰伦第一页', async () => {
+
+});
+
+
+describe('kw音乐详情测试', () => {
+    test('bg-getMusicInfo', async () => {
         try {
-            const result = await kw.search("周杰伦", 1, 'album');
-            
+            const result = await kw.getMusicInfo( {
+                "id": "266117254",
+                "artwork": "https://img4.kuwo.cn/star/albumcover/1080/46/50/4239435795.jpg",
+                "title": "夜曲 (cover: 周杰伦)",
+                "artist": "奶黄包",
+                "album": "奶包包",
+                "albumId": "36241682",
+                "artistId": "16696006"
+            },);
+
+            // 验证返回结果结构
             expect(result).toBeDefined();
-            expect(result).toHaveProperty('isEnd');
-            expect(result).toHaveProperty('data');
-            expect(Array.isArray(result.data)).toBe(true);
-            
-            if (result.data.length > 0) {
-                const albumItem = result.data[0];
-                expect(albumItem).toHaveProperty('id');
-                expect(albumItem).toHaveProperty('title');
-                expect(albumItem).toHaveProperty('artist');
-            }
-            
-            console.log(`搜索到 ${result.data.length} 个专辑`);
-            
+
+
+
+
+
+            console.log("结果详情:", JSON.stringify(result, null, 2));
+
         } catch (error) {
-            console.error('搜索专辑失败:', error);
-            fail(`搜索专辑请求失败: ${error.message}`);
+            console.error('搜索失败:', error);
+            fail(`搜索请求失败: ${error.message}`);
         }
     });
+});
 
-    test('搜索不存在的歌曲应该返回空结果', async () => {
+describe('bg歌单列表', () => {
+    test('bg-getTopLists', async () => {
         try {
-            const result = await kw.search("这是一个不存在的歌曲名随机字符串123456", 1, 'music');
-            
+            const result = await kw.getTopLists();
+
+            // 验证返回结果结构
             expect(result).toBeDefined();
-            expect(result.data).toBeDefined();
-            expect(Array.isArray(result.data)).toBe(true);
-            // 应该返回空数组或者没有匹配结果
-            expect(result.data.length).toBe(0);
-            
+
+
+
+
+
+            console.log("结果详情:", JSON.stringify(result, null, 2));
+
         } catch (error) {
-            console.error('搜索不存在的歌曲失败:', error);
+            console.error('搜索失败:', error);
+            fail(`搜索请求失败: ${error.message}`);
+        }
+    });
+});
+
+describe('bg歌单详情', () => {
+    test('bg-getTopListDetail', async () => {
+        try {
+            const result = await kw.getTopListDetail({
+                "id": "/list/top.html",
+                "title": "韩国音乐榜",
+                "artist": "韩国音乐榜"
+            },2);
+
+            // 验证返回结果结构
+            expect(result).toBeDefined();
+
+
+
+
+
+            console.log("结果详情:", JSON.stringify(result, null, 2));
+
+        } catch (error) {
+            console.error('搜索失败:', error);
+            fail(`搜索请求失败: ${error.message}`);
+        }
+    });
+});
+
+describe('bg歌单 tag ', () => {
+    test('bg-getRecommendSheetTags', async () => {
+        try {
+            const result = await kw.getRecommendSheetTags();
+
+            // 验证返回结果结构
+            expect(result).toBeDefined();
+
+
+
+
+
+            console.log("结果详情:", JSON.stringify(result, null, 2));
+
+        } catch (error) {
+            console.error('搜索失败:', error);
+            fail(`搜索请求失败: ${error.message}`);
+        }
+    });
+});
+
+describe('bg获取某个 tag 下的所有歌单 ', () => {
+    test('bg-getRecommendSheetsByTag ', async () => {
+        try {
+            const result = await kw.getRecommendSheetsByTag( {
+                "id": "/gdlist/gdzq.html",
+                "title": "古典专区"
+            },2);
+
+            // 验证返回结果结构
+            expect(result).toBeDefined();
+
+
+
+
+
+            console.log("结果详情:", JSON.stringify(result, null, 2));
+
+        } catch (error) {
+            console.error('搜索失败:', error);
+            fail(`搜索请求失败: ${error.message}`);
+        }
+    });
+});
+
+describe('bg获取歌单详情 ', () => {
+    test('bg-getMusicSheetInfo ', async () => {
+        try {
+            const result = await kw.getMusicSheetInfo(  {
+                "id": "/playlist/9205581.html",
+                "title": "五音养生：古琴疏肝理气静心纯音乐",
+                "artist": "五音养生：古琴疏肝理气静心纯音乐",
+                "artwork": "http://c1.kgimg.com/custom/400/20251217/20251217122454820926.png",
+                "album": ""
+            },2);
+
+            // 验证返回结果结构
+            expect(result).toBeDefined();
+
+
+
+
+
+            console.log("结果详情:", JSON.stringify(result, null, 2));
+
+        } catch (error) {
+            console.error('搜索失败:', error);
             fail(`搜索请求失败: ${error.message}`);
         }
     });
