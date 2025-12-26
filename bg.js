@@ -4,6 +4,8 @@ const siteURL = 'https://a.buguyy.top'
 module.exports = {
     platform: "bugu", // 插件名
     version: "0.0.2", // 版本号
+    "author": "公众号:非主流的小城生活",
+    "srcUrl": "https://hk.gh-proxy.org/https:/raw.githubusercontent.com/lushunming/MyMusicFree/master/mvmp3.js",
     cacheControl: "no-store", // 我们可以直接解析出musicItem的结构，因此选取no-store就好了，当然也可以不写这个字段
     async search(query, page, type) {
         if (type === "music") {
