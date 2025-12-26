@@ -61,6 +61,32 @@ describe('bg音乐搜索功能测试', () => {
         }
     });
 });
+describe('bg音乐getMediaSource', () => {
+    test('bg-getMediaSource', async () => {
+        try {
+            const result = await kw.getMediaSource({
+                "id": "/mp3/a823ae8d84854fd2eb5b8e599d1263fa.html",
+                "title": "说好的幸福呢",
+                "artist": "周杰伦",
+                "artwork": "https://img2.kuwo.cn/star/albumcover/300/s4s0/93/1794217775.jpg",
+                "album": ""
+            });
+
+            // 验证返回结果结构
+            expect(result).toBeDefined();
+
+
+
+
+
+            console.log("结果详情:", JSON.stringify(result, null, 2));
+
+        } catch (error) {
+            console.error('搜索失败:', error);
+            fail(`搜索请求失败: ${error.message}`);
+        }
+    });
+});
 
 describe('bg歌单列表', () => {
     test('bg-getTopLists', async () => {

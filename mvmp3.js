@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const siteURL = 'https://www.mvmp3.com'
 module.exports = {
     platform: "mvmp3", // 插件名
-    version: "0.0.3", // 版本号
+    version: "0.0.4", // 版本号
     cacheControl: "no-store", // 我们可以直接解析出musicItem的结构，因此选取no-store就好了，当然也可以不写这个字段
     //搜索
     async search(query, page, type) {
@@ -60,6 +60,21 @@ module.exports = {
 
         return {
             "url": resultJSON.url, "rawLrc": resultJSON.lrc, "title": resultJSON.name,
+        };
+    },  //歌曲详情
+    async getMediaSource(info, quality) {
+        let infoId = info.id + ""
+        infoId = infoId.replace("/mp3/", "").replace(".html", '')
+        const resultJSON = (await axios.post(siteURL + '/style/js/play.php', {
+            id: infoId, type: "dance"
+        }, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        })).data
+
+        return {
+            "url": resultJSON.url
         };
     }, /**
      * 排行榜

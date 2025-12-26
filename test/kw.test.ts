@@ -38,15 +38,15 @@ describe('kw音乐搜索功能测试', () => {
 describe('kw音乐详情测试', () => {
     test('bg-getMusicInfo', async () => {
         try {
-            const result = await kw.getMusicInfo( {
-                "id": "266117254",
-                "artwork": "https://img4.kuwo.cn/star/albumcover/1080/46/50/4239435795.jpg",
-                "title": "夜曲 (cover: 周杰伦)",
-                "artist": "奶黄包",
-                "album": "奶包包",
-                "albumId": "36241682",
-                "artistId": "16696006"
-            },);
+            const result = await kw.getMusicInfo(  {
+                "id": "37316619",
+                "artwork": "https://img4.kuwo.cn/star/albumcover/1080/17/79/2445214436.jpg",
+                "title": "夜曲",
+                "artist": "纯音乐",
+                "album": "世界名曲（10）土耳其进行曲",
+                "albumId": "5069454",
+                "artistId": "11081"
+            });
 
             // 验证返回结果结构
             expect(result).toBeDefined();
@@ -88,10 +88,11 @@ describe('bg歌单列表', () => {
 describe('bg歌单详情', () => {
     test('bg-getTopListDetail', async () => {
         try {
-            const result = await kw.getTopListDetail({
-                "id": "/list/top.html",
-                "title": "韩国音乐榜",
-                "artist": "韩国音乐榜"
+            const result = await kw.getTopListDetail( {
+                "id": "293",
+                "coverImg": "http://img2.kwcdn.kuwo.cn/star/upload/3/3/1649672816467_.jpg",
+                "title": "Space Shower",
+                "description": "SPACE SHOWER TV设立于1989年，因通过MV和直播节目介绍了日本的众多艺人而备受好评。 本榜单根据频道上的播放次数计算，为你展现日本音乐的流行趋势。 每周三更新。"
             },2);
 
             // 验证返回结果结构
@@ -135,8 +136,9 @@ describe('bg获取某个 tag 下的所有歌单 ', () => {
     test('bg-getRecommendSheetsByTag ', async () => {
         try {
             const result = await kw.getRecommendSheetsByTag( {
-                "id": "/gdlist/gdzq.html",
-                "title": "古典专区"
+                "title": "浼ゆ劅",
+                "digest": "10000",
+                "id": "146"
             },2);
 
             // 验证返回结果结构
@@ -159,12 +161,13 @@ describe('bg获取歌单详情 ', () => {
     test('bg-getMusicSheetInfo ', async () => {
         try {
             const result = await kw.getMusicSheetInfo(  {
-                "id": "/playlist/9205581.html",
-                "title": "五音养生：古琴疏肝理气静心纯音乐",
-                "artist": "五音养生：古琴疏肝理气静心纯音乐",
-                "artwork": "http://c1.kgimg.com/custom/400/20251217/20251217122454820926.png",
-                "album": ""
-            },2);
+                "title": "伤感｜你让爱成了一种迷糊",
+                "artist": "制作家工作室",
+                "id": "3674441683",
+                "artwork": "http://img1.kuwo.cn/star/userpl2015/98/66/1765771354010_577097598_500.jpg",
+                "playCount": "3113",
+                "createUserId": "577097598"
+            },1);
 
             // 验证返回结果结构
             expect(result).toBeDefined();
