@@ -3,13 +3,13 @@
   "plugins": [
     {
       "name": "布谷音乐",
-      "url": "https://ghproxy.net/https:/raw.githubusercontent.com/lushunming/MyMusicFree/master/bg.js",
-      "version": "0.0.2"
+      "url": "https://ghproxy.net/https:/raw.githubusercontent.com/lushunming/MyMusicFree/master/dist/bg.js",
+      "version": "0.0.3"
     },
     {
       "name": "无名音乐",
-      "url": "https://ghproxy.net/https:/raw.githubusercontent.com/lushunming/MyMusicFree/master/mvmp3.js",
-      "version": "0.0.7"
+      "url": "https://ghproxy.net/https:/raw.githubusercontent.com/lushunming/MyMusicFree/master/dist/mvmp3.js",
+      "version": "0.0.8"
     }
 
   ]
