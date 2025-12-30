@@ -5,7 +5,7 @@ module.exports = {
     platform: "mvmp3", // 插件名
     version: "0.0.8", // 版本号
     author: "公众号:非主流的小城生活",
-    srcUrl: "https://ghproxy.net/https:/raw.githubusercontent.com/lushunming/MyMusicFree/master/dist/mvmp3.js",
+    srcUrl: "https://ghfast.top/https:/raw.githubusercontent.com/lushunming/MyMusicFree/master/dist/mvmp3.js",
     cacheControl: "no-store", // 我们可以直接解析出musicItem的结构，因此选取no-store就好了，当然也可以不写这个字段
     //搜索
     async search(query, page, type) {
