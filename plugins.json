@@ -1,16 +1,182 @@
 {
   "desc": "此链接为 MusicFree 插件，插件开发及使用方式参考 https://musicfree.upup.fun",
-  "plugins": [
-    {
-      "name": "布谷音乐",
-      "url": "https://ghfast.top/https:/raw.githubusercontent.com/lushunming/MyMusicFree/master/dist/bg.js",
-      "version": "0.0.3"
-    },
-    {
-      "name": "无名音乐",
-      "url": "https://ghfast.top/https:/raw.githubusercontent.com/lushunming/MyMusicFree/master/dist/mvmp3.js",
-      "version": "0.0.8"
-    }
+  "plugins": 
+[
+  {
+    "name": "5CVQwD5ZuIKm6ysdwWvgu.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/5CVQwD5ZuIKm6ysdwWvgu.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "小秋音乐（歌词）.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/小秋音乐（歌词）.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "歌词宝.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/歌词宝.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "溯音网易.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/溯音网易.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "WebDav_lrc.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/WebDav_lrc.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "Ciallo～(∠・ω< )⌒☆(仅网易).js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/Ciallo～(∠・ω< )⌒☆(仅网易).js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "元力咪咕.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/元力咪咕.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "Ew98FtF5cVq1czILeIiAw.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/Ew98FtF5cVq1czILeIiAw.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "QQ(迟言接口).js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/QQ(迟言接口).js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "WebDav v0.1.2.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/WebDav v0.1.2.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "哔哩哔哩_Cookie v0.7.3.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/哔哩哔哩_Cookie v0.7.3.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "元力酷我.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/元力酷我.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "网易(念心音源).js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/网易(念心音源).js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "碳酸歌词.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/碳酸歌词.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "歌词网.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/歌词网.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "歌曲宝.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/歌曲宝.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "酷狗Q.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/酷狗Q.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "GD音乐台.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/GD音乐台.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "酷狗(念心音源).js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/酷狗(念心音源).js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "酷我.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/酷我.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "咪咕Domdkw.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/咪咕Domdkw.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "爱听.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/爱听.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "元力QQ.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/元力QQ.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "闻音酷我.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/闻音酷我.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "酷我Q.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/酷我Q.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "网易(bimiao音源).js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/网易(bimiao音源).js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "QQ音乐.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/QQ音乐.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "元力酷狗.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/元力酷狗.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "碳酸氢钠.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/碳酸氢钠.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "GitCode.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/GitCode.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "Youtube.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/Youtube.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "元力网易.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/元力网易.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "0yvPlbubg5VhVTtwPQXmd.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/0yvPlbubg5VhVTtwPQXmd.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "bilibili.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/bilibili.js",
+    "version": "1.0.0"
+  },
+  {
+    "name": "wy.js",
+    "url": "https://raw.githubusercontent.com/LmLanmei64/MusicFreePlugins/refs/heads/master/dist/wy.js",
+    "version": "1.0.0"
+  }
+]
 
-  ]
 }
